@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: nest_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: nestuser
+      POSTGRES_PASSWORD: nestpass
+      POSTGRES_DB: nestdb
+    ports:
+      - '55432:5432' # Puerto 55432 para evitar conflictos
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
